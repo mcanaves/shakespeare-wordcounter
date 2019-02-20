@@ -1,9 +1,12 @@
 import csv
+import logging
 import os
 from collections import Counter
 
 from config import config
 from wordcounter.core.reporters import FileReporter
+
+logger = logging.getLogger(__name__)
 
 
 class FileNotSupportedException(Exception):
@@ -26,7 +29,9 @@ class CSVReporter(FileReporter):
         return ".csv"
 
     def save(self, result: Counter):
-        with open(config["ROOT_DIR"].joinpath(self.filename), "w") as file:
+        filepath = config["ROOT_DIR"].joinpath(self.filename)
+        logger.debug("Saving result as csv on %s", filepath)
+        with open(filepath, "w") as file:
             writer = csv.writer(file)
             writer.writerow(["Word", "Counter"])
             for row in result.most_common():

@@ -19,5 +19,8 @@ def wordcounter(reporter: FileReporter, *repositories: FileRepository):
     """Word counter main pipeline"""
     logger.info("Starting word counter...")
     count_pipeline = pipeline_composer(token_loader, token_cleaner, word_counter)
+    logger.info("Processing results...")
     result = sum([count_pipeline(r) for r in repositories], Counter())
+    logger.info("Saving results...")
     reporter.save(result)
+    logger.info("Process finished")

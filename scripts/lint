@@ -1,0 +1,8 @@
+#!/bin/sh -e
+
+echo "==> Formatting code..."
+docker run --rm -v $(pwd):/opt wordcounter black config wordcounter tests
+echo "==> Sorting python imports..."
+docker run --rm -v $(pwd):/opt wordcounter isort --recursive --apply config wordcounter tests
+echo "==> Linting..."
+docker run --rm -v $(pwd):/opt wordcounter pylint config wordcounter tests

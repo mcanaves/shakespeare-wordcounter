@@ -1,0 +1,10 @@
+-r base.txt
+
+black
+pylint
+isort
+mypy
+pytest
+pytest-cov
+pytest-mock
+codecov

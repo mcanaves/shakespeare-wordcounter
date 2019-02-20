@@ -1,0 +1,10 @@
+#!/bin/sh -e
+
+echo "==> Running tests..."
+docker run --rm -it -v $(pwd):/opt wordcounter pytest -W ignore::DeprecationWarning --cov=wordcounter --cov=tests --cov-fail-under=100 --cov-report=term-missing ${@}
+echo "==> Checking static typing..."
+docker run --rm -v $(pwd):/opt wordcounter mypy --config-file=.mypy.cfg wordcounter
+echo "==> Checking code format..."
+docker run --rm -v $(pwd):/opt wordcounter black --check config wordcounter tests
+echo "==> Checking the order of python imports..."
+docker run --rm -v $(pwd):/opt wordcounter isort --recursive --check-only config wordcounter tests

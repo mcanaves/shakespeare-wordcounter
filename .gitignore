@@ -1,0 +1,9 @@
+.DS_Store
+*.pyc
+.coverage
+.pytest_cache/
+.mypy_cache/
+.vscode/
+.env
+result.csv
+test.csv

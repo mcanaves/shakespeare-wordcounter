@@ -1,0 +1,10 @@
+sudo: true
+language: minimal
+services:
+  - docker
+before_install:
+    - ./scripts/setup
+script:
+    - ./scripts/test
+after_script:
+    - codecov

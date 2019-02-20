@@ -1,7 +1,6 @@
 # Shakespeare Word Counter
 
 [![Build Status](https://travis-ci.com/mcanaves/shakespeare-wordcounter.svg?branch=master)](https://travis-ci.com/mcanaves/shakespeare-wordcounter)
-[![codecov](https://codecov.io/gh/mcanaves/shakespeare-wordcounter/branch/master/graph/badge.svg)](https://codecov.io/gh/mcanaves/shakespeare-wordcounter)
 
 Little project that tells you how many times Shakespeare use every word in three of his masterpieces. These books are:
 
